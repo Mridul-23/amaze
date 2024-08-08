@@ -1,5 +1,3 @@
----
-
 # Amaze
 
 Amaze is a Scrapy tool designed for dynamic web scraping using Selenium and Scrapy. This project utilizes Selenium WebDriver (ChromeDriver) to handle dynamic content loading and ScrapeOps fake header middleware for request headers.
@@ -91,8 +89,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Acknowledgments
 
-- [Scrapy](https://scrapy.org/)
-- [Selenium](https://www.selenium.dev/)
-- [ScrapeOps](https://scrapeops.io/)
-
----
+- [Scrapy](https://scrapy.org/) - An open-source and collaborative web crawling framework for Python.
+- [Selenium](https://www.selenium.dev/) - A suite of tools for automating web browsers.
+- [ScrapeOps](https://scrapeops.io/) - Provides useful tools and services for web scraping, including fake header middleware.
