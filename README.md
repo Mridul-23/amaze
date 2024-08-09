@@ -48,7 +48,7 @@ To set up this project, follow these steps:
    ```
 
 4. **Download and configure ChromeDriver:**
-   - [Download ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+   - [Download ChromeDriver](https://googlechromelabs.github.io/chrome-for-testing/)
    - Ensure ChromeDriver is in your PATH or specify its location in your Scrapy settings.
 
 ## Usage
