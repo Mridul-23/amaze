@@ -43,7 +43,7 @@ class SeleniumMiddleware:
 
         elif "/p/" in request.url:
             try:
-                WebDriverWait(self.driver, 10).until(
+                WebDriverWait(self.driver, 15).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, "#pdp_product_name"))
                 )
             except Exception as e:
@@ -67,7 +67,7 @@ class ScrapeOpsFakeBrowserHeaderAgentMiddleware:
         return cls(crawler.settings)
 
     def __init__(self, settings):
-        self.scrapeops_api_key = 'api-key'
+        self.scrapeops_api_key = 'api-key' # Replace with your ScrapeOps API key
         self.scrapeops_endpoint = 'http://headers.scrapeops.io/v1/browser-headers'
         self.scrapeops_fake_browser_headers_active = True
         self.scrapeops_num_results = 1

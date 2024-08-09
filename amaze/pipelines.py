@@ -15,24 +15,30 @@ class AmazePipeline:
             item['name'] = item['name'].strip()
         
 
-        if item['id']:
-            item['id'] = item['id'].strip()
+        if item['article_id']:
+            item['article_id'] = item['article_id'].strip()
         
+        
+        if item['product_type']:
+            item['product_type'] = item['product_type'].strip()
+            
 
-        if item['dicounted_price']:
-            item['dicounted_price'] = item['dicounted_price'].strip().replace(',', '').replace('₹', '').strip()
-        
+        if item['discounted_price']:
+            item['discounted_price'] = item['discounted_price'].strip().replace(',', '').replace('₹', '').strip()
 
         if item['actual_price']:
             item['actual_price'] = item['actual_price'].strip().replace(',', '').replace('₹', '').strip()
-        
+        else:
+            item['actual_price'] = item['discounted_price']
 
-        if item['dicount']:
-            item['dicount'] = item['dicount'].strip().replace('%', '').strip()
-        
+        if item['discount']:
+            item['discount'] = item['discount'].strip().replace('Off', '').strip()
+            if item['discount'] == "(Incl. of all taxes)":
+                item['discount'] = "0%"
 
-        if item['Sold_by']:
-            item['Sold_by'] = item['Sold_by'].strip()
+
+        if item['sold_by']:
+            item['sold_by'] = item['sold_by'].strip()
         
 
         if item['review_count']:
@@ -40,14 +46,15 @@ class AmazePipeline:
         
 
         if item['images']:
-            item['images'] = [image.strip() for image in item['images'] if image.strip()]
+            item['images'] = [ image.split('?')[0] for image in item['images'] if image ]
         
 
-        if item['Key_features']:
-            item['Key_features'] = [feature.strip() for feature in item['Key_features'] if feature.strip()]
+        if item['key_features']:
+            item['key_features'] = [feature.replace(" "," ") for feature in item['key_features'] if feature.replace(" "," ")]
+            item['key_features'] = [feature.replace("×","x") for feature in item['key_features'] if feature.replace("×","x")]
         
-
-        if item['discription']:
-            item['discription'] = [desc.strip() for desc in item['discription'] if desc.strip()]
+        if item['description']:
+            item['description'] = [desc.strip() for desc in item['description'] if desc.strip()]
+            item['description'] = [desc.replace("’", "\'") for desc in item['description'] if desc.replace("’", "\'")]
 
         return item

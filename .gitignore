@@ -1,5 +1,5 @@
-/__pycache__
+*.cpython-312.pyc
 /.vscode
-test_m.json
-notes.txt
-list.txt
+*.json
+*.txt
+/electronics/
